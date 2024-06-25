@@ -6,15 +6,16 @@ This Flask web application fetches current weather data using the OpenWeatherMap
 
 Clone the repository:
 
+```bash
 git clone https://github.com/BehzadHassan/Weather-Application
 cd Weather-Application
 
 Install dependencies:
-
+```bash
 pip install -r requirements.txt
 
 Run the application:
-
+```bash
 python app.py
 
 Open your browser and navigate to http://localhost:5000 to view the application.
