@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <form id="weatherForm" method="POST" action="/weather">
+            <input type="text" name="city" placeholder="Enter city" required>
+            <button type="submit">Get Weather</button>
+        </form>
+        <button id="currentLocationButton">Use Current Location</button>
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i> Loading...
+        </div>
+        <div id="weatherResult">
+            {% if weather %}
+                <div class="weather-info">
+                    <div class="header">
+                        <h2>{{ weather['city'] }}, {{ weather['country'] }}</h2>
+                        <p>Current weather</p>
+                        <p>{{ weather['time'] }}</p>
+                    </div>
+                    <div class="main-info">
+                        <img src="https://openweathermap.org/img/wn/{{ weather['icon'] }}@2x.png" alt="Weather icon">
+                        <div class="temperature">
+                            <h1>{{ weather['temp'] }}°C</h1>
+                            <p>{{ weather['description'] }}</p>
+                            <p>Feels like {{ weather['feels_like'] }}°</p>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <p>Wind: {{ weather['wind_speed'] }} km/h</p>
+                        <p>Humidity: {{ weather['humidity'] }}%</p>
+                        <p>Visibility: {{ weather['visibility'] }} km</p>
+                        <p>Pressure: {{ weather['pressure'] }} mb</p>
+                        <p>Dew point: {{ weather['dew_point'] }}°</p>
+                    </div>
+                </div>
+            {% elif error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#weatherForm').on('submit', function() {
+                $('#loadingSpinner').show();
+                $('#weatherResult').hide();
+            });
+
+            $('#currentLocationButton').on('click', function() {
+                $('#loadingSpinner').show();
+                $('#weatherResult').hide();
+                window.location.href = "/current_location_weather";
+            });
+        });
+    </script>
+</body>
+</html>
