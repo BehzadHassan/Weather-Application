@@ -9,15 +9,15 @@ Clone the repository:
 ```bash
 git clone https://github.com/BehzadHassan/Weather-Application
 cd Weather-Application
-
+```
 Install dependencies:
 ```bash
 pip install -r requirements.txt
-
+```
 Run the application:
 ```bash
 python app.py
-
+```
 Open your browser and navigate to http://localhost:5000 to view the application.
 
 ## Usage
@@ -26,7 +26,7 @@ Open your browser and navigate to http://localhost:5000 to view the application.
 - Click on "Use Current Location" to fetch weather data based on your current IP address.
 
 ## File Structure
-
+```bash
 project/
 │
 ├── app.py                # Flask application
@@ -37,7 +37,7 @@ project/
 │   ├── style.css         # Styling CSS File
 │   └── background.jpg    # Background Picture
 └── README.md             # Project documentation
-
+```
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your improvements.
