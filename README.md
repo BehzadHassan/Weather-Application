@@ -32,8 +32,8 @@ project/
 ├── app.py                # Flask application
 ├── requirements.txt      # Python dependencies
 ├── templates/            # HTML templates
-│   ├── index.html        # Main HTML template
-|── static/               # Css and other Static files
+│   └── index.html        # Main HTML template
+│── static/               # Css and other Static files
 │   ├── style.css         # Styling CSS File
 │   └── background.jpg    # Background Picture
 └── README.md             # Project documentation
